@@ -85,6 +85,53 @@
             color: #e3e3e3;
         }
 
+        /* Hamburger Menu Styles */
+        .menu-icon {
+            display: none;
+            cursor: pointer;
+            font-size: 1.5em;
+            color: #11a500;
+            position: absolute;
+            top: 15px;
+            right: 20px;
+        }
+
+        #menu-toggle {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            nav ul {
+                flex-direction: column;
+                position: fixed;
+                width: 100%;
+                height: 100%;
+                top: 60px;
+                left: -100%;
+                background-color: #222;
+                transition: left 0.3s ease-in-out;
+                align-items: center;
+                justify-content: center;
+            }
+
+            nav li {
+                margin: 20px 0;
+            }
+
+            nav ul.showing {
+                left: 0;
+            }
+        }
+
+        /* Show/hide the menu when the checkbox is toggled */
+        #menu-toggle:checked + label + ul {
+            left: 0;
+        }
+
         /* Hero Section */
         .hero {
             background: url('hero-background.jpg') no-repeat center center/cover;
@@ -365,6 +412,8 @@
 </head>
 <body>
     <nav>
+        <input type="checkbox" id="menu-toggle">
+        <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
         <ul>
             <li><a href="#about" aria-label="About Me">About Me</a></li>
             <li><a href="#projects" aria-label="Projects">Projects</a></li>
