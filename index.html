@@ -85,53 +85,6 @@
             color: #e3e3e3;
         }
 
-        /* Hamburger Menu Styles */
-        .menu-icon {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5em;
-            color: #11a500;
-            position: absolute;
-            top: 15px;
-            right: 20px;
-        }
-
-        #menu-toggle {
-            display: none;
-        }
-
-        @media (max-width: 768px) {
-            .menu-icon {
-                display: block;
-            }
-
-            nav ul {
-                flex-direction: column;
-                position: fixed;
-                width: 100%;
-                height: 100%;
-                top: 60px;
-                left: -100%;
-                background-color: #222;
-                transition: left 0.3s ease-in-out;
-                align-items: center;
-                justify-content: center;
-            }
-
-            nav li {
-                margin: 20px 0;
-            }
-
-            nav ul.showing {
-                left: 0;
-            }
-        }
-
-        /* Show/hide the menu when the checkbox is toggled */
-        #menu-toggle:checked + label + ul {
-            left: 0;
-        }
-
         /* Hero Section */
         .hero {
             background: url('hero-background.jpg') no-repeat center center/cover;
@@ -184,7 +137,7 @@
             display: flex;
             justify-content: center;
             margin-top: 10px;
-            flex-wrap: wrap;
+            flex-wrap: nowrap; /* Изменено с wrap на nowrap для горизонтального выравнивания */
         }
 
         .social-links a {
@@ -325,6 +278,12 @@
             text-align: center;
         }
 
+        footer .social-links {
+            display: flex;
+            justify-content: center;
+            flex-wrap: nowrap;
+        }
+
         footer .social-links a {
             margin: 10px;
             color: #11a500;
@@ -374,7 +333,7 @@
             }
 
             .social-links {
-                flex-direction: column;
+                flex-direction: row; /* Изменено на row для горизонтального выравнивания */
             }
         }
 
@@ -411,23 +370,23 @@
     </style>
 </head>
 <body>
+    <!-- Navigation Bar -->
     <nav>
-        <input type="checkbox" id="menu-toggle">
-        <label for="menu-toggle" class="menu-icon"><i class="fas fa-bars"></i></label>
         <ul>
-            <li><a href="#about" aria-label="About Me">About Me</a></li>
-            <li><a href="#projects" aria-label="Projects">Projects</a></li>
-            <li><a href="#skills" aria-label="Skills">Skills</a></li>
-            <li><a href="#testimonials" aria-label="Testimonials">Testimonials</a></li>
-            <li><a href="#contact" aria-label="Contact Me">Contact Me</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#testimonials">Testimonials</a></li>
+            <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
 
-    <section class="hero" id="hero">
+    <!-- Hero Section -->
+    <section class="hero">
         <div class="hero-content">
-            <img src="photo_2024-05-26_20-46-25.jpg" alt="Profile Picture" class="profile-pic">
+            <img src="profile-pic.jpg" alt="Gurgen Baghdasaryan" class="profile-pic">
             <h1>Gurgen Baghdasaryan</h1>
-            <p>C# Programmer</p>
+            <h2>C# Programmer</h2>
             <div class="social-links">
                 <a href="https://github.com/MrSnuffff" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
                 <a href="https://www.instagram.com/gug_779?igsh=aWY3dWdieGsxbGFt" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -436,96 +395,138 @@
         </div>
     </section>
 
-    <div class="container">
-        <section id="about">
-            <h2>About Me</h2>
-            <p>
-                I've been programming since I was 12 years old, mostly self-taught. Started with C language, then learned C#, created my first Unity game "Starship". Then started learning Xamarin and created my first app "Tasks". After that, I began learning ASP.NET and .NET MAUI.
-            </p>
-        </section>
+    <!-- About Section -->
+    <section id="about" class="container">
+        <h2>About Me</h2>
+        <p>Welcome to my personal website! I am Gurgen Baghdasaryan, a passionate C# programmer with experience in developing various applications and projects. Here you will find more information about my work and skills.</p>
+    </section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <ul class="projects">
-                <li>
-                    <img src="project1.jpg" alt="Book Exchange Backend" class="project-image">
-                    <div>
-                        <a href="https://github.com/MrSnuffff/ExBookWebAPI" target="_blank">Book Exchange backend</a>
-                        <p>Server part of an application designed for exchanging books.</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="project2.jpg" alt="Book Exchange Mobile App" class="project-image">
-                    <div>
-                        <a href="https://github.com/MrSnuffff/ExBookMauiApp" target="_blank">Book Exchange mobile app</a>
-                        <p>Client part of an application designed for exchanging books.</p>
-                    </div>
-                </li>
-                <li>
-                    <img src="Colipso.png" alt="QR-System" class="project-image">
-                    <div>
-                        <a href="https://github.com/MrSnuffff/QR-System" target="_blank">QR-System</a>
-                        <p>Application for managing and storing products in a store.</p>
-                    </div>
-                </li>
-            </ul>
-        </section>
+    <!-- Projects Section -->
+    <section id="projects" class="container">
+        <h2>Projects</h2>
+        <ul class="projects">
+            <li>
+                <img src="project1.jpg" alt="Book Exchange Backend" class="project-image">
+                <div>
+                    <a href="https://github.com/MrSnuffff/ExBookWebAPI" target="_blank">Book Exchange backend</a>
+                    <p>Server part of an application designed for exchanging books.</p>
+                </div>
+            </li>
+            <li>
+                <img src="project2.jpg" alt="Book Exchange Mobile App" class="project-image">
+                <div>
+                    <a href="https://github.com/MrSnuffff/ExBookMauiApp" target="_blank">Book Exchange mobile app</a>
+                    <p>Client part of an application designed for exchanging books.</p>
+                </div>
+            </li>
+            <li>
+                <img src="Colipso.png" alt="QR-System" class="project-image">
+                <div>
+                    <a href="https://github.com/MrSnuffff/QR-System" target="_blank">QR-System</a>
+                    <p>Application for managing and storing products in a store.</p>
+                </div>
+            </li>
+        </ul>
+    </section>
 
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-container">
-                <div class="skill">
-                    <h3>C#</h3>
-                    <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
-                </div>
-                <div class="skill">
-                    <h3>ASP.NET</h3>
-                    <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
-                </div>
-                <div class="skill">
-                    <h3>Unity</h3>
-                    <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
-                </div>
-                <div class="skill">
-                    <h3>MySQL</h3>
-                    <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
+    <!-- Skills Section -->
+    <section id="skills" class="container">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skill">
+                <h3>C#</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 90%;"></div>
                 </div>
             </div>
-        </section>
-
-        <section id="testimonials">
-            <h2>Testimonials</h2>
-            <div class="testimonial">
-                <p>"Gurgen is an excellent developer! His work on our project was exceptional."</p>
-                <p>- Client Name</p>
+            <div class="skill">
+                <h3>Asp .net</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 75%;"></div>
+                </div>
             </div>
-            <div class="testimonial">
-                <p>"I highly recommend Gurgen for any C# related projects. He is highly skilled and professional."</p>
-                <p>- Client Name</p>
+            <div class="skill">
+                <h3>Unity</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 50%;"></div>
+                </div>
             </div>
-        </section>
+            <div class="skill">
+                <h3>JavaScript</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 60%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>HTML & CSS</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 60%;"></div>
+                </div>
+            </div>
+            <div class="skill">
+                <h3>MySQL</h3>
+                <div class="progress-bar">
+                    <div class="progress" style="width: 70%;"></div>
+                </div>
+            </div>
+            <!-- Add more skills as needed -->
+        </div>
+    </section>
 
-        <section id="contact">
-            <h2>Contact Me</h2>
-            <form action="mailto:baghdasaryangurgen@mail.ru" method="post" enctype="text/plain">
-                <input type="text" name="name" placeholder="Your Name" required>
-                <input type="email" name="email" placeholder="Your Email" required>
-                <textarea name="message" placeholder="Your Message" required></textarea>
-                <button type="submit">Send</button>
-            </form>
-        </section>
-    </div>
+    <!-- Testimonials Section -->
+    <section id="testimonials">
+        <h2>Testimonials</h2>
+        <div class="testimonial">
+            <p>"Gurgen is an amazing programmer. He delivered the project on time and exceeded my expectations."</p>
+            <p>- Client 1</p>
+        </div>
+        <div class="testimonial">
+            <p>"I highly recommend Gurgen for any C# development work. He is skilled, reliable, and a pleasure to work with."</p>
+            <p>- Client 2</p>
+        </div>
+        <!-- Add more testimonials as needed -->
+    </section>
 
+    <!-- Contact Section -->
+    <!-- Contact Section -->
+<!-- Contact Section -->
+<section id="contact" class="container">
+    <h2>Contact Me</h2>
+    <form id="contact-form" onsubmit="sendEmail(event)">
+        <input type="text" id="name" name="name" placeholder="Your Name" required>
+        <input type="email" id="email" name="email" placeholder="Your Email" required>
+        <textarea id="message" name="message" placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+    </form>
+    <p>Or contact me directly via email: <a href="mailto:baghdasaryangurgen@mail.ru">baghdasaryangurgen@mail.ru</a></p>
+</section>
+
+<script>
+function sendEmail(event) {
+    event.preventDefault(); // Prevent the form from submitting normally
+
+    var name = document.getElementById('name').value;
+    var email = document.getElementById('email').value;
+    var message = document.getElementById('message').value;
+
+    var mailtoLink = 'mailto:baghdasaryangurgen@mail.ru'
+                    + '?subject=' + encodeURIComponent('Contact Form: ' + name)
+                    + '&body=' + encodeURIComponent('Name: ' + name + '\nEmail: ' + email + '\n\nMessage:\n' + message);
+
+    window.location.href = mailtoLink;
+}
+</script>
+
+
+
+    <!-- Footer -->
     <footer>
-        <p>You can contact me by email: <a href="mailto:baghdasaryangurgen@mail.ru">baghdasaryangurgen@mail.ru</a></p>
+        <p>&copy; 2024 Gurgen Baghdasaryan. All rights reserved.</p>
         <div class="social-links">
             <a href="https://github.com/MrSnuffff" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
             <a href="https://www.instagram.com/gug_779?igsh=aWY3dWdieGsxbGFt" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
             <a href="https://t.me/Gug_2oo7" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
         </div>
     </footer>
-    <script>
-        // Google Analytics script here
-    </script>
 </body>
 </html>
