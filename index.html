@@ -329,34 +329,22 @@
         /* Responsive Design */
         @media (max-width: 768px) {
             nav ul {
-                flex-direction: column;
                 display: none;
-            }
-
-            nav ul.active {
-                display: flex;
-            }
-
-            nav .hamburger {
-                display: flex;
-            }
-
-            .skills-container .skill {
-                width: 100%;
-            }
-
-            .projects li {
                 flex-direction: column;
-                align-items: center;
+                width: 100%;
+                text-align: center;
             }
-        }
 
-        @media (min-width: 769px) {
-            nav ul {
-                display: flex !important;
+            .nav-menu.active {
+                display: flex;
+            }
+
+            .hamburger {
+                display: flex;
             }
         }
     </style>
+
 </head>
 <body>
     <!-- Navigation Bar -->
