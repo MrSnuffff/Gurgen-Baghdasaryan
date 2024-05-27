@@ -6,6 +6,8 @@
     <meta name="description" content="Personal website of Gurgen Baghdasaryan. Here you will find information about my projects and about me as a C# programmer.">
     <meta name="author" content="Gurgen Baghdasaryan">
     <title>Gurgen Baghdasaryan</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* General Styles */
         body {
@@ -18,7 +20,7 @@
         }
 
         .container {
-            width: 80%;
+            width: 90%;
             margin: 0 auto;
             padding: 20px;
         }
@@ -64,10 +66,11 @@
             padding: 0;
             display: flex;
             justify-content: center;
+            flex-wrap: wrap;
         }
 
         nav li {
-            margin: 0 20px;
+            margin: 10px 20px;
         }
 
         nav a {
@@ -130,8 +133,15 @@
         }
 
         /* Social Links */
+        .social-links {
+            display: flex;
+            justify-content: center;
+            margin-top: 10px;
+            flex-wrap: wrap;
+        }
+
         .social-links a {
-            margin: 0 10px;
+            margin: 10px;
             color: #11a500;
             font-size: 1.5em;
             transition: transform 0.3s, color 0.3s;
@@ -140,12 +150,6 @@
         .social-links a:hover {
             color: #e3e3e3;
             transform: scale(1.2);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
         }
 
         /* Projects Section */
@@ -157,8 +161,9 @@
 
         .projects li {
             display: flex;
+            flex-direction: column;
             align-items: center;
-            margin: 10px 0;
+            margin: 20px 0;
             padding: 10px;
             border: 1px solid #333;
             border-radius: 5px;
@@ -167,6 +172,7 @@
 
         .projects a {
             font-size: 1.2em;
+            text-align: center;
         }
 
         .projects li:hover {
@@ -175,11 +181,10 @@
         }
 
         .project-image {
-            width: 100px;
-            height: 100px;
-            margin-right: 20px;
+            width: 100%;
+            height: auto;
+            margin-bottom: 10px;
             border-radius: 5px;
-            object-fit: cover;
         }
 
         /* Skills Section */
@@ -195,7 +200,8 @@
         }
 
         .skill {
-            width: 30%;
+            width: 100%;
+            max-width: 300px;
             margin: 10px 0;
         }
 
@@ -240,7 +246,7 @@
         }
 
         input, textarea {
-            width: 80%;
+            width: 90%;
             max-width: 500px;
             margin: 10px 0;
             padding: 10px;
@@ -273,7 +279,7 @@
         }
 
         footer .social-links a {
-            margin: 0 10px;
+            margin: 10px;
             color: #11a500;
             font-size: 1.5em;
             transition: color 0.3s, transform 0.3s;
@@ -283,28 +289,103 @@
             color: #e3e3e3;
             transform: scale(1.2);
         }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+            }
+
+            nav li {
+                margin: 10px 0;
+            }
+
+            .skills-container .skill {
+                width: 100%;
+            }
+
+            .projects li {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .projects .project-image {
+                width: 100%;
+                height: auto;
+                max-width: 300px; /* Максимальная ширина изображения */
+                margin-bottom: 10px;
+                border-radius: 5px;
+                object-fit: cover; 
+            }
+
+            form {
+                width: 100%;
+            }
+
+            input, textarea {
+                width: 100%;
+            }
+
+            .social-links {
+                flex-direction: column;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero-content img {
+                width: 100px;
+                height: 100px;
+            }
+
+            nav a {
+                font-size: 1em;
+            }
+
+            .social-links a {
+                font-size: 1.2em;
+            }
+
+            .skills-container .skill {
+                width: 100%;
+            }
+
+            .projects li {
+                width: 100%;
+            }
+
+            .testimonial {
+                padding: 15px;
+            }
+
+            input, textarea {
+                width: 90%;
+            }
+        }
     </style>
 </head>
 <body>
     <nav>
         <ul>
-            <li><a href="#about">About Me</a></li>
-            <li><a href="#projects">Projects</a></li>
-            <li><a href="#skills">Skills</a></li>
-            <li><a href="#testimonials">Testimonials</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="#about" aria-label="About Me">About Me</a></li>
+            <li><a href="#projects" aria-label="Projects">Projects</a></li>
+            <li><a href="#skills" aria-label="Skills">Skills</a></li>
+            <li><a href="#testimonials" aria-label="Testimonials">Testimonials</a></li>
+            <li><a href="#contact" aria-label="Contact Me">Contact Me</a></li>
         </ul>
     </nav>
 
-    <header>
-        <section class="hero">
-            <div class="hero-content">
-                <img src="photo_2024-05-26_20-46-25.jpg" alt="Gurgen Baghdasaryan">
-                <h1>Welcome to My Personal Website</h1>
-                <p>I'm Gurgen Baghdasaryan, a passionate C# developer.</p>
+    <section class="hero" id="hero">
+        <div class="hero-content">
+            <img src="photo_2024-05-26_20-46-25.jpg" alt="Profile Picture" class="profile-pic">
+            <h1>Gurgen Baghdasaryan</h1>
+            <p>C# Programmer</p>
+            <div class="social-links">
+                <a href="https://github.com/MrSnuffff" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+                <a href="https://www.instagram.com/gug_779?igsh=aWY3dWdieGsxbGFt" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                <a href="https://t.me/Gug_2oo7" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
             </div>
-        </section>
-    </header>
+        </div>
+    </section>
 
     <div class="container">
         <section id="about">
@@ -332,13 +413,12 @@
                     </div>
                 </li>
                 <li>
-                    <img src="project3.jpg" alt="QR-System" class="project-image">
+                    <img src="Colipso.png" alt="QR-System" class="project-image">
                     <div>
                         <a href="https://github.com/MrSnuffff/QR-System" target="_blank">QR-System</a>
                         <p>Application for managing and storing products in a store.</p>
                     </div>
                 </li>
-                <!-- Add more projects as needed -->
             </ul>
         </section>
 
@@ -347,15 +427,19 @@
             <div class="skills-container">
                 <div class="skill">
                     <h3>C#</h3>
-                    <div class="progress-bar"><div class="progress" style="width: 90%;"></div></div>
+                    <div class="progress-bar"><div class="progress" style="width: 70%;"></div></div>
                 </div>
                 <div class="skill">
                     <h3>ASP.NET</h3>
-                    <div class="progress-bar"><div class="progress" style="width: 85%;"></div></div>
+                    <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
                 </div>
                 <div class="skill">
                     <h3>Unity</h3>
-                    <div class="progress-bar"><div class="progress" style="width: 75%;"></div></div>
+                    <div class="progress-bar"><div class="progress" style="width: 50%;"></div></div>
+                </div>
+                <div class="skill">
+                    <h3>MySQL</h3>
+                    <div class="progress-bar"><div class="progress" style="width: 65%;"></div></div>
                 </div>
             </div>
         </section>
@@ -386,10 +470,13 @@
     <footer>
         <p>You can contact me by email: <a href="mailto:baghdasaryangurgen@mail.ru">baghdasaryangurgen@mail.ru</a></p>
         <div class="social-links">
-            <a href="https://github.com/MrSnuffff" target="_blank">GitHub</a>
-            <a href="https://www.instagram.com/gug_779?igsh=aWY3dWdieGsxbGFt" target="_blank">Instagram</a>
-            <a href="https://t.me/Gug_2oo7" target="_blank">Telegram</a>
+            <a href="https://github.com/MrSnuffff" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
+            <a href="https://www.instagram.com/gug_779?igsh=aWY3dWdieGsxbGFt" target="_blank" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="https://t.me/Gug_2oo7" target="_blank" aria-label="Telegram"><i class="fab fa-telegram"></i></a>
         </div>
     </footer>
+    <script>
+        // Google Analytics script here
+    </script>
 </body>
 </html>
